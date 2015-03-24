@@ -3,7 +3,6 @@
   "name": "prerender",
   "description": "Service to prerender Javascript rendered pages for SEO",
   "version": "3.14.4",
-  "port": 3000,
   "repository": {
     "type": "git",
     "url": "https://github.com/prerender/prerender"
