@@ -9,7 +9,8 @@ module.exports = function (grunt) {
                     archive: 'archives/<%= pkg.version %>.zip'
                 },
                 files: [
-                    { expand: true, src: ['server.js'] }
+                    { expand: true, src: ['lib/**'] },
+                    { expand: true, src: ['./*'], filter: 'isFile' }
                 ]
             }
         },
