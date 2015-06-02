@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     { expand: true, src: ['lib/**'] },
-                    { expand: true, src: ['./*'], filter: 'isFile' }
+                    { expand: true, src: ['index.js', 'LICENCE', 'package.json', 'server.js'] }
                 ]
             }
         },
