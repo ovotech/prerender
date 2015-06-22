@@ -29,11 +29,17 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'archives/', src: ['<%= pkg.version %>.zip'], dest: '<%= pkg.name %>/'}
                 ]
             }
+        },
+        bump: {
+            options: {
+                pushTo: 'origin'
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-aws-s3');
     grunt.loadNpmTasks('grunt-contrib-compress');
-    
+    grunt.loadNpmTasks('grunt-bump');
+
     grunt.registerTask('publish', ['compress', 'aws_s3:publish']);
 };
