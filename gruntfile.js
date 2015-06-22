@@ -23,7 +23,8 @@ module.exports = function (grunt) {
             publish: {
                 options: {
                     bucket: 'ovo-bower-repo',
-                    differential: true
+                    differential: true,
+                    overwrite: false
                 },
                 files: [
                     { expand: true, cwd: 'archives/', src: ['<%= pkg.version %>.zip'], dest: '<%= pkg.name %>/'}
