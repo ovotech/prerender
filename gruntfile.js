@@ -3,10 +3,11 @@ module.exports = function (grunt) {
 
     grunt.config.merge({
         pkg: pkg,
+        version: '<%=pkg.version%>-' + process.env.BUILD_NUMBER,
         compress: {
             main: {
                 options: {
-                    archive: 'archives/<%= pkg.version %>.zip'
+                    archive: 'archives/<%= version %>.zip'
                 },
                 files: [
                     { expand: true, src: ['lib/**'] },
@@ -27,20 +28,14 @@ module.exports = function (grunt) {
                     overwrite: false
                 },
                 files: [
-                    { expand: true, cwd: 'archives/', src: ['<%= pkg.version %>.zip'], dest: '<%= pkg.name %>/'}
+                    { expand: true, cwd: 'archives/', src: ['<%= version %>.zip'], dest: '<%= pkg.name %>/'}
                 ]
-            }
-        },
-        bump: {
-            options: {
-                pushTo: 'origin'
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-aws-s3');
     grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-bump');
 
     grunt.registerTask('publish', ['compress', 'aws_s3:publish']);
 };
