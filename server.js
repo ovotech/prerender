@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var prerender = require('./lib');
 
-commenting the args and the phantomArguments to use the ones in /lib/service.js
 var args;
 if (process.env.PHANTOM_ARGS != null)
     args = process.env.PHANTOM_ARGS.split(" ");
