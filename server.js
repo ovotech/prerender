@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-var prerender = require('./lib');
+var prerender = require('./lib')
+               , util = require('./util.js');
 
 var args;
 if (process.env.PHANTOM_ARGS != null)
     args = process.env.PHANTOM_ARGS.split(" ");
+
+util.log('starting prerender with args : ' + args );
 
 var server = prerender({
     workers: process.env.PHANTOM_CLUSTER_NUM_WORKERS,
